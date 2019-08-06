@@ -1,14 +1,14 @@
 import React from "react"
 import { ethers } from 'ethers';
 
-class Transfer extends React.Component
+class Approve extends React.Component
 {
     constructor()
     {
         super()
         this.state={
             Id:"",
-            reciever:"",
+            delegate:"",
             numTokens:""
         }
         this.handlechange=this.handlechange.bind(this)
@@ -18,7 +18,7 @@ class Transfer extends React.Component
     {
         this.setState({
             [e.target.name]:e.target.value
-        },console.log(this.state.Id))
+        },console.log(this.state.numTokens))
     }
     handlesubmit =async(e)=>
     {
@@ -29,7 +29,6 @@ class Transfer extends React.Component
         let addr=await ethereum.enable()
         let  provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
         const signer = provider.getSigner();
-      
         let abi=[
             {
                 "constant": false,
@@ -231,38 +230,39 @@ class Transfer extends React.Component
         ]
         let address="0xb8a5e17673ff2acc6dbdf0cd2c5795c8fcb7b5ca"
         let contract = new ethers.Contract(address, abi, signer);
-        
-        let tx1= await contract.getTransferById(this.state.Id,this.state.reciever,this.state.numTokens)
+        console.log("The id is",this.state.Id)
+        console.log("The delegate is",this.state.delegate)
+        console.log("The numtokens is",this.state.numTokens)
+      
+        let tx1= await contract.getApprovebyid(this.state.Id,this.state.delegate,this.state.numTokens)
+        console.log(tx1)
        this.setState({
         Id:"",
-        reciever:"",
-        numTokens:""
+        numTokens:"",
+        delegate:""
 
        })
-       
-
     }
     render()
     {
         return(
-
             <div>
-                <form onSubmit={this.handlesubmit}>
-                <p>Enter id of your token</p>
-                <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id}/>
-                <br/>
-                <p>Reciever address</p>
-                <input type="text" name="reciever" onChange={this.handlechange} value={this.state.reciever}/>
-                <br/>
-                <p>Number of Tokens</p>
-                <input type="text" name="numTokens" onChange={this.handlechange} value={this.state.numTokens}/>
-                <br/>
-                <button type="submit">submit</button>
-                </form>
-                
+            <form onSubmit={this.handlesubmit}>
+            <p>Enter id of your token</p>
+            <input type="text" name="Id" onChange={this.handlechange} value={this.state.Id}/>
+            <br/>
+            <p>Delegate address</p>
+            <input type="text" name="delegate" onChange={this.handlechange} value={this.state.delegate}/>
+            <br/>
+            <p>Number of Tokens</p>
+            <input type="text" name="numTokens" onChange={this.handlechange} value={this.state.numTokens}/>
+            <br/>
+            <button type="submit">submit</button>
+            </form>
+            
 
-            </div>
+        </div>
         )
     }
 }
-export default Transfer;
+export default Approve

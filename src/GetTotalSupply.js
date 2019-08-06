@@ -232,7 +232,7 @@ class GetTotalSupply extends React.Component
         let contract = new ethers.Contract(address, abi, signer);
         console.log("The id is",this.state.Id)
         let tx1= await contract.getTotalbalanceById(this.state.Id)
-        debugger
+      
         console.log("The balance is",tx1.toString())
         this.setState({
             balance:tx1.toString()
