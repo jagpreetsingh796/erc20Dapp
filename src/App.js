@@ -5,6 +5,7 @@ import GetTotalSupply from './GetTotalSupply'
 import Transfer from './Transfer'
 import Approve from './Approve'
 import Delegatebalance from './Delegatebalance'
+import DelegateTransfer from './DelegateTransfer'
 import './App.css';
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
       <br/>
       <h4>Check Delegate balance</h4>
       <Delegatebalance/>
+      <br/>
+      <h4>Delegate Transfer</h4>
+      <DelegateTransfer/>
       
 
       
