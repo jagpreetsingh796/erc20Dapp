@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "erc20-8775e",
+    "Erc20": "erc20-8775e"
+  }
+}

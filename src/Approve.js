@@ -18,7 +18,7 @@ class Approve extends React.Component
     {
         this.setState({
             [e.target.name]:e.target.value
-        },console.log(this.state.numTokens))
+        })
     }
     handlesubmit =async(e)=>
     {
@@ -230,9 +230,7 @@ class Approve extends React.Component
         ]
         let address="0xb8a5e17673ff2acc6dbdf0cd2c5795c8fcb7b5ca"
         let contract = new ethers.Contract(address, abi, signer);
-        console.log("The id is",this.state.Id)
-        console.log("The delegate is",this.state.delegate)
-        console.log("The numtokens is",this.state.numTokens)
+        
       
         let tx1= await contract.getApprovebyid(this.state.Id,this.state.delegate,this.state.numTokens)
         console.log(tx1)

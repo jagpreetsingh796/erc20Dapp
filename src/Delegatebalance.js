@@ -19,7 +19,7 @@ class Delegatebalance extends React.Component
     {
         this.setState({
             [e.target.name]:e.target.value
-        },console.log(this.state))
+        },)
     }
     handlesubmit =async(e)=>
     {
@@ -231,13 +231,9 @@ class Delegatebalance extends React.Component
         ]
         let address="0xb8a5e17673ff2acc6dbdf0cd2c5795c8fcb7b5ca"
         let contract = new ethers.Contract(address, abi, signer);
-        console.log("The id is",this.state.Id)
-        console.log("The delegate is",this.state.delegate)
-        console.log("The owner is",this.state.owner)
-      
+       
         let tx1= await contract.getTotalbalancefordelegateById(this.state.Id,this.state.owner,this.state.delegate)
-        console.log(tx1)
-
+       
         this.setState({
             balance:tx1.toString()
         })

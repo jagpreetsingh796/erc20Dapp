@@ -257,6 +257,7 @@ class CreateToken extends React.Component
           this.setState({
             Name:"",
             Symbol:"",
+            TotalSupply:"",
             
           })
         }
@@ -294,16 +295,16 @@ class CreateToken extends React.Component
     {
         return(
             <div>
-            <form onSubmit={this.handlesubmit}>
+            <form onSubmit={this.handlesubmit} >
                 Name
-                <input type="text" name="Name" onChange={this.handlechange} value={this.state.Name}/>
+                <input  type="text"  name="Name"  label="Name" onChange={this.handlechange} value={this.state.Name}/>
 
                
                 Symbol
-                <input type="text" name="Symbol" onChange={this.handlechange}  value={this.state.Symbol}/>
+                <input type="text"  name="Symbol" label="Symbol" onChange={this.handlechange}  value={this.state.Symbol}/>
                
                TotalSupply
-                <input type="text" name="TotalSupply" onChange={this.handlechange}  value={this.state.TotalSupply}/>
+                <input type="text"  name="TotalSupply" label="TotalSupply"  onChange={this.handlechange}  value={this.state.TotalSupply}/>
                 <br/>
                 <button type="submit">submit</button>
                 

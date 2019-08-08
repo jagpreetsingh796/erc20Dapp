@@ -11,6 +11,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <h4>Create your ERC20 token here</h4>
       <CreateToken/>
       <br/>
       <h4>Check your supply here</h4>
